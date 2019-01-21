@@ -5,6 +5,7 @@ RUN conda create --name py36 --yes \
       bokeh \
       cartopy \
       cython \
+      gcc_linux-64 \
       gdal \
       ipykernel \
       ipywidgets \
