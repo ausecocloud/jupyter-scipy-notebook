@@ -1,4 +1,4 @@
-FROM hub.bccvl.org.au/jupyter/base-notebook:0.9.4-2
+FROM hub.bccvl.org.au/jupyter/base-notebook:0.9.4-4
 
 # pre install some useful packgaes
 RUN conda create --name py36 --yes \
@@ -20,6 +20,7 @@ RUN conda create --name py36 --yes \
       scipy \
       seaborn \
       statsmodels \
+      netCDF4 \
  && conda clean -tipsy \
  && rm -fr /home/$NB_USER/{.cache,.conda,.npm}
 
