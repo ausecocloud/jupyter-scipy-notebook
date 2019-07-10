@@ -1,4 +1,4 @@
-FROM hub.bccvl.org.au/jupyter/base-notebook:0.9.4-7
+FROM hub.bccvl.org.au/jupyter/base-notebook:0.9.4-9
 
 # pre install some useful packgaes
 RUN conda create --name py36 --yes \
@@ -21,12 +21,12 @@ RUN conda create --name py36 --yes \
       seaborn \
       statsmodels \
       netCDF4 \
- && conda clean -tipsy \
+ && ${CONDA_DIR}/bin/conda clean -tipsy \
  && rm -fr /home/$NB_USER/{.cache,.conda,.npm}
 
 # packages not available in conda standard stream
 #TODO: does this version need to match nbextension?
-RUN /opt/conda/envs/py36/bin/pip install --no-cache-dir \
+RUN ${CONDA_DIR}/envs/py36/bin/pip install --no-cache-dir \
       ipyleaflet
 
 # Import matplotlib the first time to build the font cache.
