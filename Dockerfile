@@ -1,4 +1,4 @@
-FROM hub.bccvl.org.au/jupyter/base-notebook:0.9.4-11
+FROM hub.bccvl.org.au/jupyter/base-notebook:0.9.4-13
 
 # pre install some useful packgaes
 RUN conda create --name py36 --yes \
@@ -30,7 +30,7 @@ RUN ${CONDA_DIR}/envs/py36/bin/pip install --no-cache-dir \
       ipyleaflet
 
 # Import matplotlib the first time to build the font cache.
-ENV DEFAULT_KERNEL_NAME=conda_py36 \
+ENV DEFAULT_KERNEL_NAME=conda-env-py36-py \
     XDG_CACHE_HOME=/home/$NB_USER/.cache
 
 RUN MPLBACKEND=Agg ${CONDA_DIR}/envs/py36/bin/python -c "import matplotlib.pyplot"

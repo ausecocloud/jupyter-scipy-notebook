@@ -16,7 +16,7 @@
 
 PREFIX = hub.bccvl.org.au/jupyter
 IMAGE = scipy-notebook
-TAG ?= 0.9.4
+TAG ?= latest
 
 test:
 	docker run --rm -it -p 8888:8888 -e "DROPBOX_APPKEY=$(DROPBOX_APPKEY)" $(PREFIX)/$(IMAGE):$(TAG) bash
