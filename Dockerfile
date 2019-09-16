@@ -1,4 +1,4 @@
-FROM hub.bccvl.org.au/jupyter/base-notebook:0.9.4-14
+FROM hub.bccvl.org.au/jupyter/base-notebook:0.9.4-16
 
 # pre install some useful packgaes
 RUN conda create --name py36 --yes \
@@ -8,6 +8,7 @@ RUN conda create --name py36 --yes \
       gcc_linux-64 \
       gdal \
       ipykernel \
+      ipympl \
       ipywidgets \
       nomkl \
       numba \
